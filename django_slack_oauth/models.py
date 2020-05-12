@@ -4,7 +4,6 @@ from jsonfield import JSONField
 
 from django.conf import settings
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible
 
 
 __all__ = (
@@ -13,7 +12,6 @@ __all__ = (
 )
 
 
-@python_2_unicode_compatible
 class SlackUser(models.Model):
     slacker = models.OneToOneField(settings.AUTH_USER_MODEL, primary_key=True, related_name='slack_user', on_delete=models.CASCADE)
     access_token = models.CharField(max_length=128, null=True)
